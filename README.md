@@ -1,4 +1,4 @@
-WinPhoneMVVMSample -- Easy MVVM Sample for Windows Phone 8
+Easy MVVM Sample for Windows Phone 8
 ==================
 
 This is a test sample of the use of MVVM design pattern on Windows Phone 8, showing the basics of use.
