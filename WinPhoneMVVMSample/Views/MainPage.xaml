@@ -65,8 +65,7 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center" 
                        Grid.Row="4" Grid.Column="1" />
-            <ListBox ItemsSource="{Binding People}" HorizontalContentAlignment="Stretch" 
-                     Grid.Row="5" Grid.ColumnSpan="2">
+            <ListBox ItemsSource="{Binding People}" Grid.Row="5" Grid.ColumnSpan="2">
                 <ListBox.ItemContainerStyle>
                     <Style TargetType="ListBoxItem">
                         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
