@@ -12,4 +12,4 @@ The sample shows the following:
 - connecting ViewModel to View through bindings
 - unit testing
 
-This project contains almost everything that I wish I knew when I started developing for Windows Phone. Hopefully it can help at least one person understand one way of using MVVM on Windows Phone.
+This project contains almost everything that I wish I knew when I started developing for Windows Phone. Hopefully it can help at least one person understand one way of using MVVM on Windows Phone. A <a href="http://yevgeller.blogspot.com/2014/02/another-simple-mvvm-tutorial-for.html">link</a> to my blog where I explain some of this code.
