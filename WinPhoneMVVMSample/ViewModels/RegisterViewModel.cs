@@ -20,6 +20,7 @@ namespace WinPhoneMVVMSample.ViewModels
             people = new ObservableCollection<Person>(); //data store
             people.CollectionChanged += people_CollectionChanged; //update some properties when collection changes
             _registerCommand = new DelegateCommand(this.RegisterCommandAction, CanRegister); //initialize command
+            _displayInputWithoutAdditionalPropertyCommand = new DelegateCommand(this.DisplayInputWithoutAdditionalPropertyCommandAction);
         }
 
         //Registration procedure
@@ -127,5 +128,48 @@ namespace WinPhoneMVVMSample.ViewModels
                 this.OnPropertyChanged("People");
             }
         }
+
+        #region Demo how to grab a value from a control's property without an additional command
+        //the other line of code pertaining to this technique is instantiating _displayInputWithoutAdditionalPropertyCommand in constructor
+        private DelegateCommand _displayInputWithoutAdditionalPropertyCommand;
+        public ICommand DisplayInputWithoutAdditionalPropertyCommand { get { return _displayInputWithoutAdditionalPropertyCommand; } }
+
+        private void DisplayInputWithoutAdditionalPropertyCommandAction(object obj)
+        {
+            //here the app gets the text property from a control via CommandParameter property
+            //of a command
+
+            if (obj.ToString().Trim() == string.Empty)
+                ShowWhatWasTyped = "type something first";
+            else
+                ShowWhatWasTyped = "You typed: " + obj.ToString();
+        }
+
+        string _typedInput;
+        public string TypedInput
+        {
+            get { return _typedInput; }
+            set
+            {
+                if (_typedInput == value)
+                    return;
+                _typedInput = value;
+                this.OnPropertyChanged("TypedInput");
+            }
+        }
+
+        string _showWhatWasTyped;
+        public string ShowWhatWasTyped
+        {
+            get { return _showWhatWasTyped; }
+            set
+            {
+                if (_showWhatWasTyped == value)
+                    return;
+                _showWhatWasTyped = value;
+                this.OnPropertyChanged("ShowWhatWasTyped");
+            }
+        }
+        #endregion
     }
 }

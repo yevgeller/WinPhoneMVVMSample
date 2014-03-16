@@ -38,6 +38,9 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
             <TextBlock Text="Enter user name:" 
@@ -84,6 +87,13 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
+            <TextBlock Text="Another technique" HorizontalAlignment="Center" Grid.Row="6" Grid.ColumnSpan="2" Margin="0,36,0,0" />
+            <TextBlock Text="Type something here:" Grid.Row="7" />
+            <TextBox x:Name="typeSomethingHere" Grid.Row="7" Grid.Column="1" />
+            <Button Content="Display input" Grid.Row="8"
+                    Command="{Binding DisplayInputWithoutAdditionalPropertyCommand}"
+                    CommandParameter="{Binding ElementName=typeSomethingHere, Path=Text}" />
+            <TextBlock Text="{Binding ShowWhatWasTyped}" Grid.Row="8" Grid.Column="1" />
         </Grid>
     </Grid>
 
